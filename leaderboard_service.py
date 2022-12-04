@@ -9,7 +9,7 @@ game_count = "GameCount"
 score_sum = "ScoreSum"
 r = redis.StrictRedis(host='localhost',port=6379,db=0)
 
-@app.route("/leaderboard", methods=["GET"])
+@app.route("/leaderboard", methods=["POST"])
 async def update_leaderboard():
     data = await request.get_json()
     if not data or 'username' not in data or 'is_won' not in data or 'guess' not in data:
